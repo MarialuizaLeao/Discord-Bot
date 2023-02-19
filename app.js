@@ -20,3 +20,10 @@ const Client = new Discord.Client({
     ]
 }); // Creating a new Client with intents and partials needed for this bot to function.
 // partials makes sure that we receive the full data of the object returned from events
+
+// Ready event captures the state when the bot gets online
+Client.on("ready", (client) => {
+    console.log("This bot is now online: " + client.user.tag);
+})
+
+// Logs in the discord bot with the password stored in an external file
