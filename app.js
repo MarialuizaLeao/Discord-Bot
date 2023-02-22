@@ -2,7 +2,7 @@
 const Discord = require("discord.js");  // para acessar a aplicação
 
 // contains a string that is the password/token for the discord bot
-const { token } = require("./config.json")
+const { token } = require("./config.json");
 
 // Gateway Intents were introduced by Discord so bot developers can choose
 // which events their bot receives based on which data it needs to function
@@ -27,7 +27,24 @@ const Client = new Discord.Client({
 // Ready event captures the state when the bot gets online
 Client.on("ready", (client) => {
     console.log("This bot is now online: " + client.user.tag);
-})
+});
+
+// messageCreate  event captures data of a message that is created/posted
+Client.on("messageCreate", (message) => {
+    // message content to lower case
+
+    // only allow non-bots to perform any code execution
+    if(message.author.bot){ 
+        return; 
+    }
+    console.log("a new message was written!");
+
+    // only run this code is the user that wrote the message is NOT a bot
+    if(!message.author.bot){
+        message.reply("Você é gente ~em teoria~");
+    }
+
+});
 
 // Logs in the discord bot with the password stored in an external file
 Client.login(token);
