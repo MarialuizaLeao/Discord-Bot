@@ -32,6 +32,7 @@ Client.on("ready", (client) => {
 // messageCreate  event captures data of a message that is created/posted
 Client.on("messageCreate", (message) => {
     // message content to lower case
+    const userInputText = message.content.toLowerCase();
 
     // only allow non-bots to perform any code execution
     if(message.author.bot){ 
@@ -40,11 +41,19 @@ Client.on("messageCreate", (message) => {
     console.log("a new message was written!");
 
     // only run this code is the user that wrote the message is NOT a bot
-    if(!message.author.bot){
-        message.reply("Você é gente ~em teoria~");
+    //if(!message.author.bot){
+    //    message.reply("Oii, " + message.author.username + "!");
+    //}
+
+    // comands
+    if(userInputText == "!comandinhos" || userInputText == "!ajudinha"){
+        message.reply("Esse robô tem os comandos: !ajudinha !comandinhos !idade !matematica")
     }
 
 });
+
+
+// server age and member's age in server
 
 // Logs in the discord bot with the password stored in an external file
 Client.login(token);
