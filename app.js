@@ -47,9 +47,56 @@ Client.on("messageCreate", (message) => {
 
     // comands
     if(userInputText == "!comandinhos" || userInputText == "!ajudinha"){
-        message.reply("Esse robô tem os comandos: !ajudinha !comandinhos !idade !matematica")
+        message.reply("Esse robô tem os comandos: !ajudinha !comandinhos !idade");
     }
 
+    const pcOptions = ["pedra", "papel", "tesoura"];
+
+    const pcRoll = Math.floor(Math.random() * 3);
+
+    if(userInputText == "pedra"){
+        let statusMessage = "";
+        if(pcOptions[pcRoll] == "pedra"){
+            statusMessage = "empate";
+        }
+        else if(pcOptions[pcRoll] == "papel"){
+            statusMessage = "ganhou, gayyyy";
+        }
+        else if(pcOptions[pcRoll] == "tesoura"){
+            statusMessage = "se fudeu";
+        }
+        message.reply(pcOptions[pcRoll]);
+        message.reply(statusMessage);
+    }
+    else if(userInputText == "papel"){
+        let statusMessage = "";
+        if(pcOptions[pcRoll] == "pedra"){
+            statusMessage = "ganhou, gayyyy";
+        }
+        else if(pcOptions[pcRoll] == "papel"){
+            statusMessage = "empate";
+        }
+        else if(pcOptions[pcRoll] == "tesoura"){
+            statusMessage = "se fudeu";
+        }
+        message.reply(pcOptions[pcRoll]);
+        message.reply(statusMessage);
+    }
+    else if(userInputText == "tesoura"){
+        let statusMessage = "";
+        if(pcOptions[pcRoll] == "pedra"){
+            statusMessage = "se fudeu";
+        }
+        else if(pcOptions[pcRoll] == "papel"){
+            statusMessage = "ganhou, gayyyy";
+        }
+        else if(pcOptions[pcRoll] == "tesoura"){
+            statusMessage = "empate";
+        }
+        message.reply(pcOptions[pcRoll]);
+        message.reply(statusMessage);
+    }
+        
 });
 
 
